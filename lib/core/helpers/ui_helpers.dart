@@ -1,6 +1,4 @@
-
 // ignore: depend_on_referenced_packages
-import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vivasayi/core/loaded_widget.dart';
@@ -44,13 +42,10 @@ class UIHelper {
     FocusManager.instance.primaryFocus?.unfocus();
   }
 
-
   static void showTopNotification(String msg) {
     Fluttertoast.showToast(
-      
       msg: msg,
       toastLength: Toast.LENGTH_SHORT,
-
       gravity: ToastGravity.TOP,
       timeInSecForIosWeb: 5,
       backgroundColor: Colors.green,
@@ -59,27 +54,17 @@ class UIHelper {
     );
   }
 
-
-
-   static void showErrorSnackbar(BuildContext context, String error) {
-   
+  static void showErrorSnackbar(BuildContext context, String error) {
     ScaffoldMessenger.of(context).showSnackBar(
-    
       SnackBar(
-         
         dismissDirection: DismissDirection.horizontal,
         behavior: SnackBarBehavior.floating,
 
         // shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        content: GestureDetector(
-        onTap: () {
-  
-        },
-        child: Container(child: Text(error))
-      ),
+        content:
+            GestureDetector(onTap: () {}, child: Container(child: Text(error))),
         duration: Duration(seconds: 3),
-         // Adjust the duration as needed
-        
+        // Adjust the duration as needed
       ),
     );
   }

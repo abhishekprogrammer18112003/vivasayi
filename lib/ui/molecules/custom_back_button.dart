@@ -1,4 +1,4 @@
-import '../../core/app_imports.dart';
+import 'package:vivasayi/core/app_imports.dart';
 
 class CustombackButton extends StatelessWidget {
   final Function onTap;

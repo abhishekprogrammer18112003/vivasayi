@@ -2,14 +2,8 @@ import 'dart:ui';
 
 import 'package:intl/intl.dart';
 
-
-import '../helpers/utils.dart';
-
 class AppData {
-
-
   static String lang = "en";
-
 
   static Color hexToColor(String hexColor) {
     final buffer = StringBuffer();
@@ -39,12 +33,4 @@ class AppData {
     String formattedTime = DateFormat('hh:mm a').format(dateTime);
     return formattedTime;
   }
-
-
-
-
-
-  
-
- 
 }
