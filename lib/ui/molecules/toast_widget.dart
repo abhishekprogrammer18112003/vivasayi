@@ -1,7 +1,3 @@
-import 'dart:math';
-
-
-
 import '../../core/app_imports.dart';
 
 class ToastThemeColor {
@@ -13,14 +9,10 @@ class ToastThemeColor {
 class ToastWidget extends StatelessWidget {
   final String title;
   final ToastType type;
- final Function()? fn;
+  final Function()? fn;
 
-  const ToastWidget({
-    super.key,
-    this.title = "SUCCESS",
-    required this.type,
-    this.fn
-  });
+  const ToastWidget(
+      {super.key, this.title = "SUCCESS", required this.type, this.fn});
 
   ToastThemeColor _getToastTheme(ToastType type) {
     switch (type) {
