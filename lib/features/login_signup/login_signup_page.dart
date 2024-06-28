@@ -11,17 +11,17 @@ class LoginOrSignUp extends StatefulWidget {
 
 // ignore: camel_case_types
 class __LoginOrSignUpState extends State<LoginOrSignUp> {
-  bool show_login = true;
+  bool showLogin = true;
 
   void toogle() {
     setState(() {
-      show_login = !show_login;
+      showLogin = !showLogin;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (show_login) {
+    if (showLogin) {
       return Login(
         onTap: toogle,
       );

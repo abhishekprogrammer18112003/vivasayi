@@ -3,6 +3,7 @@ import 'package:vivasayi/Components/custom_button.dart';
 import 'package:vivasayi/Components/text_below.dart';
 import 'package:vivasayi/Components/text_field.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
+import 'package:vivasayi/features/login_signup/otp_page.dart';
 
 class SignUp extends StatefulWidget {
   final void Function()? onTap;
@@ -13,6 +14,15 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  void signup() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const OtpPageLogin(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +90,7 @@ class _SignUpState extends State<SignUp> {
                 fontWeight: FontWeight.w500,
               ),
               SizedBox(height: 59.h),
-              CustomButton(function: () {}, buttonText: "Create Account"),
+              CustomButton(onTap: signup, buttonText: "Create Account"),
               SizedBox(height: 15.h),
               Padding(
                 padding: EdgeInsetsDirectional.only(start: 59.w),
