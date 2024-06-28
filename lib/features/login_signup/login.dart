@@ -3,6 +3,7 @@ import 'package:vivasayi/Components/custom_button.dart';
 import 'package:vivasayi/Components/text_field.dart';
 import 'package:vivasayi/Components/text_below.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
+import 'package:vivasayi/features/login_signup/otp_page.dart';
 
 class Login extends StatefulWidget {
   final void Function()? onTap;
@@ -14,6 +15,15 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  void login() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const OtpPageLogin(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // Ensure ScreenUtil is initialized in your main.dart or this context if using it
@@ -73,7 +83,7 @@ class _LoginState extends State<Login> {
                 fontWeight: FontWeight.w500,
               ),
               SizedBox(height: 59.h),
-              CustomButton(function: () {}, buttonText: "Sign In"),
+              CustomButton(onTap: login, buttonText: "Sign In"),
               SizedBox(height: 15.h),
               Padding(
                 padding: EdgeInsetsDirectional.only(start: 59.w),
