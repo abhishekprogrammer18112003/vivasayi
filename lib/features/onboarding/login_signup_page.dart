@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vivasayi/features/login_signup/login.dart';
-import 'package:vivasayi/features/login_signup/signup.dart';
+import 'package:vivasayi/features/onboarding/login.dart';
+import 'package:vivasayi/features/onboarding/signup.dart';
 
 class LoginOrSignUp extends StatefulWidget {
   const LoginOrSignUp({super.key});
