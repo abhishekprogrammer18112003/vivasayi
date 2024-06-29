@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:vivasayi/components/textfield.dart';
 import 'package:vivasayi/core/app_imports.dart';
 import 'package:vivasayi/core/loaded_widget.dart';
@@ -15,11 +14,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _phoneController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   void signup() {
     Navigator.push(
@@ -47,7 +47,7 @@ class _SignUpState extends State<SignUp> {
                 CustomSpacers.height56,
                 Center(
                   child: Image.asset(
-                    AppIcons.app_logo,
+                    AppIcons.appLogo,
                     width: 145.w,
                     height: 144.h,
                   ),
@@ -77,6 +77,7 @@ class _SignUpState extends State<SignUp> {
                     if (v == null || v.isEmpty) {
                       return "Please enter email";
                     }
+                    return null;
                   },
                 ),
                 CustomSpacers.height26,
@@ -88,6 +89,7 @@ class _SignUpState extends State<SignUp> {
                     if (v == null || v.isEmpty) {
                       return "Please enter phone number";
                     }
+                    return null;
                   },
                 ),
                 CustomSpacers.height26,
@@ -98,6 +100,7 @@ class _SignUpState extends State<SignUp> {
                     if (v == null || v.isEmpty) {
                       return "Please enter password";
                     }
+                    return null;
                   },
                 ),
                 CustomSpacers.height26,
@@ -108,6 +111,7 @@ class _SignUpState extends State<SignUp> {
                     if (v == null || v.isEmpty) {
                       return "Please enter confirm password";
                     }
+                    return null;
                   },
                 ),
                 CustomSpacers.height20,
@@ -149,8 +153,9 @@ class _SignUpState extends State<SignUp> {
                   dHeight: 69.h,
                   dWidth: 369.w,
                   bgColor: Colors.green,
-                  dCornerRadius: 20,
+                  dCornerRadius: 12,
                 ),
+                CustomSpacers.height40,
               ],
             ),
           ),

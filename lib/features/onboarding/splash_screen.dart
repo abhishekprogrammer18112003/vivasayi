@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:vivasayi/core/app_imports.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
 import 'package:vivasayi/features/onboarding/login_signup_page.dart';
@@ -32,7 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: const Color.fromRGBO(0, 151, 0, 1),
       body: Center(
         child: Image.asset(
-          AppIcons.app_logo, // Ensure this image is in your assets folder and added in pubspec.yaml
+          AppIcons
+              .appLogo, // Ensure this image is in your assets folder and added in pubspec.yaml
           width: 250.w,
           height: 250.h,
         ),

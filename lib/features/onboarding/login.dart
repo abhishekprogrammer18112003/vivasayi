@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:vivasayi/components/textfield.dart';
 import 'package:vivasayi/core/app_imports.dart';
-import 'package:vivasayi/core/utils/custom_spacers.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
 import 'package:vivasayi/features/onboarding/otp_page.dart';
 import 'package:vivasayi/ui/molecules/custom_button.dart';
@@ -16,8 +14,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController _emailphoneController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailphoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   void login() {
     Navigator.push(
@@ -47,7 +45,7 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 56.h),
                 Center(
                   child: Image.asset(
-                    AppIcons.app_logo,
+                    AppIcons.appLogo,
                     width: 145.w,
                     height: 144.h,
                   ),
@@ -66,6 +64,7 @@ class _LoginState extends State<Login> {
                     if (v == null || v.isEmpty) {
                       return "Please Enter email/phone number";
                     }
+                    return null;
                   },
                 ),
                 CustomSpacers.height26,
@@ -77,6 +76,7 @@ class _LoginState extends State<Login> {
                     if (v == null || v.isEmpty) {
                       return "Please enter password";
                     }
+                    return null;
                   },
                 ),
                 CustomSpacers.height20,
@@ -99,7 +99,7 @@ class _LoginState extends State<Login> {
                   dHeight: 69.h,
                   dWidth: 369.w,
                   bgColor: Colors.green,
-                  dCornerRadius: 20,
+                  dCornerRadius: 12,
                 ),
                 CustomSpacers.height20,
                 Row(

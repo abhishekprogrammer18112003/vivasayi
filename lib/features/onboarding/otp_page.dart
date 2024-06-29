@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:vivasayi/core/app_imports.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
 import 'package:vivasayi/ui/molecules/custom_button.dart';
@@ -37,7 +36,7 @@ class _OtpPageLoginState extends State<OtpPageLogin> {
             dHeight: 69.h,
             dWidth: 369.w,
             bgColor: Colors.green,
-            dCornerRadius: 20,
+            dCornerRadius: 12,
           ),
         ],
       ),
@@ -145,7 +144,7 @@ class _OtpPageLoginState extends State<OtpPageLogin> {
             'Success !',
             style: TextStyle(
                 fontSize: 36.w,
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: const Color.fromARGB(255, 0, 0, 0),
                 fontWeight: FontWeight.w600),
           ),
           CustomSpacers.height20,
