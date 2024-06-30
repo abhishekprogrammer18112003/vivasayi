@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vivasayi/core/utils/screen_utils.dart';
 
 class MyTextfield extends StatelessWidget {
   final String? hintText;
   final String labelText;
   final TextEditingController controller;
- TextInputType? type;
+  TextInputType? type;
   final String? Function(String?)? validator;
 
   MyTextfield({
@@ -25,16 +24,11 @@ class MyTextfield extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,
-      
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(12),
         ),
-        
       ),
-      
       validator: validator,
     );
   }
 }
-
-
