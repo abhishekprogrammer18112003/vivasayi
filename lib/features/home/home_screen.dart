@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vivasayi/core/app_imports.dart';
-import 'package:vivasayi/core/constants/app_data.dart';
-// import 'package:vivasayi/core/helpers/scaffold_helpers.dart';
+
 import 'package:vivasayi/core/utils/screen_utils.dart';
+import 'package:vivasayi/features/shops/nearby_shops.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -186,8 +186,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           itemCount: 6,
           itemBuilder: (context, index) {
-            return Card(
-              elevation: 2.0,
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NearbyShop(),
+                  ),
+                );
+              },
               child: Stack(
                 children: [
                   Container(
@@ -201,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Positioned(
-                    bottom: 8.h,
+                    bottom: 20.h,
                     left: 8.w,
                     child: Container(
                       decoration: BoxDecoration(
