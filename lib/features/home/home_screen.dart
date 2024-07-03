@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vivasayi/core/app_imports.dart';
+import 'package:vivasayi/core/constants/app_data.dart';
 // import 'package:vivasayi/core/helpers/scaffold_helpers.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
 
@@ -14,90 +15,114 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16.w),
-            child: IconButton(
-              icon: Icon(Icons.add, size: 34.w),
-              onPressed: () {
-                // Add your onPressed action here
-              },
-            ),
-          ),
-        ],
-      ),
+     
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomSpacers.height20,
-            _listViewIcons(),
-            CustomSpacers.height20,
-            _carouselItems(),
-            CustomSpacers.height20,
-            Padding(
-              padding: EdgeInsets.only(left: 20.w),
-              child: Text(
-                'Shops',
-                style: TextStyle(fontSize: 25.w, fontWeight: FontWeight.w500),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0 , vertical : 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CustomSpacers.height38,
+              _buildTop(),
+              CustomSpacers.height20,
+              _listViewIcons(),
+              CustomSpacers.height20,
+              _carouselItems(),
+              CustomSpacers.height20,
+              Padding(
+                padding: EdgeInsets.only(left: 20.w),
+                child: Text(
+                  'Shops',
+                  style: TextStyle(fontSize: 25.w, fontWeight: FontWeight.w500),
+                ),
               ),
-            ),
-            _shopsAvailable(),
-          ],
+              _shopsAvailable(),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _listViewIcons() => SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: <Widget>[
-            _coloredContainer('Modern \nAgri'),
-            _coloredContainer('Natural \nAgri'),
-            _coloredContainer('Agri \nMedicines'),
-            _coloredContainer('Terrace \nGarden'),
-            _coloredContainer('Articles'),
-          ],
-        ),
-      );
+  _buildTop()=>Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Image.asset(AppIcons.appLogo , height: 60.h, width: 60.w,),
+      IconButton(
+              icon: Icon(Icons.add, size: 34.w),
+              onPressed: () {
+                // Add your onPressed action here
+              },
+            ),
+    ],
+  );
 
-  Widget _coloredContainer(String text) => Container(
-        height: 70.h,
-        width: 85.w,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 224, 250, 216),
-          borderRadius: BorderRadius.circular(12), // 12px border radius
+  // _listViewIcons() => SingleChildScrollView(
+  //       scrollDirection: Axis.horizontal,
+  //       child: Row(
+  //         children: <Widget>[
+  //           _coloredContainer('Modern \nAgri'),
+  //           _coloredContainer('Natural \nAgri'),
+  //           _coloredContainer('Agri \nMedicines'),
+  //           _coloredContainer('Terrace \nGarden'),
+  //           _coloredContainer('Articles'),
+  //         ],
+  //       ),
+  //     );
+
+
+  _listViewIcons()=>SizedBox(
+    height: 100.h,
+
+    child: ListView.builder(
+      shrinkWrap: true,
+      scrollDirection: Axis.horizontal,
+      itemCount: AppData.homeHeaderData.length,
+      itemBuilder: (context , index) =>_coloredContainer(AppData.homeHeaderData[index])),
+  );
+
+  Widget _coloredContainer(String text) => Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+          height: 50.h,
+          width: 90.w,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 224, 250, 216),
+            borderRadius: BorderRadius.circular(12), // 12px border radius
+          ),
+        
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+             
+              Image.asset(
+                AppIcons.drone,
+                height: 38.h,
+                width: 40.w,
+              ),
+              Text(
+                text,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 10.w ,fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
         ),
-        margin: EdgeInsets.symmetric(horizontal: 8.w),
-        child: Column(
-          children: [
-            CustomSpacers.height2,
-            Image.asset(
-              AppIcons.drone,
-              height: 38.h,
-              width: 40.w,
-            ),
-            Text(
-              text,
-              style: TextStyle(fontSize: 10.w),
-            ),
-          ],
-        ),
-      );
+  );
 
   Widget _carouselItems() => CarouselSlider(
         options: CarouselOptions(height: 200.0, viewportFraction: 1),
         items: [1, 2, 3, 4, 5].map((i) {
           return Builder(
             builder: (BuildContext context) {
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.symmetric(horizontal: 0.0),
-                child: Padding(
-                  padding: EdgeInsets.all(30.w),
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 0.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 231, 255, 226),

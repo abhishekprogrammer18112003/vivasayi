@@ -44,43 +44,40 @@ class _NavBarScreenState extends State<NavBarScreen> {
           );
         },
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(19.w, 0, 19.w, 14.h),
-        child: Container(
-          height: 83.h,
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 5.0,
-              color: const Color.fromARGB(255, 247, 247, 247),
-            ),
-            borderRadius: BorderRadius.circular(10.0), // Uniform radius
+      bottomNavigationBar: Container(
+        height: 80.h,
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 5.0,
+            color: const Color.fromARGB(255, 247, 247, 247),
           ),
-          child: Material(
-            elevation: 0.0,
-            child: BottomNavigationBar(
-              iconSize: 28.h,
-              showSelectedLabels: true,
-              showUnselectedLabels: true,
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home_filled),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.shopping_cart),
-                  label: 'Cart',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person_2_rounded),
-                  label: 'Profile',
-                ),
-              ],
-              currentIndex: _selectedIndex,
-              onTap: _onItemTapped,
-              backgroundColor: Colors.white,
-              selectedItemColor: const Color.fromARGB(255, 56, 186, 0),
-              unselectedItemColor: const Color.fromARGB(255, 136, 136, 136),
-            ),
+          borderRadius: BorderRadius.circular(10.0), // Uniform radius
+        ),
+        child: Material(
+          elevation: 0.0,
+          child: BottomNavigationBar(
+            iconSize: 28.h,
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_filled),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart),
+                label: 'Cart',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_2_rounded),
+                label: 'Profile',
+              ),
+            ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            backgroundColor: Colors.white,
+            selectedItemColor: const Color.fromARGB(255, 56, 186, 0),
+            unselectedItemColor: const Color.fromARGB(255, 136, 136, 136),
           ),
         ),
       ),

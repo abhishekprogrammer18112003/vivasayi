@@ -33,4 +33,6 @@ class AppData {
     String formattedTime = DateFormat('hh:mm a').format(dateTime);
     return formattedTime;
   }
+
+  static List<String> homeHeaderData= ["Modern\nAgri" , "Natural\nAgri" , "Agri\nMedicines" , "Terrace\nGarden" , "Articles"];
 }
