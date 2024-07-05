@@ -1,8 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vivasayi/core/app_imports.dart';
+import 'package:vivasayi/core/constants/app_data.dart';
 
 import 'package:vivasayi/core/utils/screen_utils.dart';
-import 'package:vivasayi/features/shops/nearby_shops.dart';
+import 'package:vivasayi/features/shops/shop_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      Image.asset(AppIcons.appLogo , height: 60.h, width: 60.w,),
+      Image.asset(AppIcons.appLogo , height: 50.h, width: 50.w,),
       IconButton(
               icon: Icon(Icons.add, size: 34.w),
               onPressed: () {
@@ -191,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const NearbyShop(),
+                    builder: (context) => const ShopScreen(),
                   ),
                 );
               },

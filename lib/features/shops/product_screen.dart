@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:vivasayi/core/utils/custom_spacers.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
-import 'package:vivasayi/features/shops/seed_details.dart';
+import 'package:vivasayi/features/shops/product_details.dart';
 
-class ShopDetails extends StatefulWidget {
-  const ShopDetails({super.key});
+class ProductScreen extends StatefulWidget {
+  const ProductScreen({super.key});
 
   @override
-  State<ShopDetails> createState() => _ShopDetailsState();
+  State<ProductScreen> createState() => _ProductScreenState();
 }
 
-class _ShopDetailsState extends State<ShopDetails> {
+class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,7 +137,7 @@ class _ShopDetailsState extends State<ShopDetails> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const SeedDetails(),
+                              builder: (context) => const ProductDetails(),
                             ),
                           );
                         },

@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "E:/vivasayi/linux"
+    "cmake.sourceDirectory": "E:/vivasayi/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

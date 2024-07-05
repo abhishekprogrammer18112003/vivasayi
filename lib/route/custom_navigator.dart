@@ -1,5 +1,5 @@
 import 'package:vivasayi/core/app_imports.dart';
-import 'package:vivasayi/features/onboarding/splash_screen.dart';
+import 'package:vivasayi/features/onboarding/screens/splash_screen.dart';
 
 import 'app_pages.dart';
 

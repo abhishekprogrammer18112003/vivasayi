@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "714992012565",
+    "project_id": "vivasayi-7db1f",
+    "storage_bucket": "vivasayi-7db1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714992012565:android:a8ae1679204c65adc82d1c",
+        "android_client_info": {
+          "package_name": "com.abhion.vivasayi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714992012565-mefnfennrq4tkvrjquue33rrh06tn6vf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbnU0IRUklkOTFVyRkO4TsMEO1OqXrmjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714992012565-mefnfennrq4tkvrjquue33rrh06tn6vf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714992012565:android:a60f003fca47c236c82d1c",
+        "android_client_info": {
+          "package_name": "com.vivasayi.drapjinfotech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714992012565-ll18ll1a6ceruhbr67npkk5vdkgd2uk5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vivasayi.drapjinfotech",
+            "certificate_hash": "647d6f7ef7eae921c26c7412f50f8e4f4cdded7f"
+          }
+        },
+        {
+          "client_id": "714992012565-mefnfennrq4tkvrjquue33rrh06tn6vf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbnU0IRUklkOTFVyRkO4TsMEO1OqXrmjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714992012565-mefnfennrq4tkvrjquue33rrh06tn6vf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
