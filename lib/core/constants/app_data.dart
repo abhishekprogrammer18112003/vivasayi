@@ -34,5 +34,19 @@ class AppData {
     return formattedTime;
   }
 
-  static List<String> homeHeaderData= ["Modern\nAgri" , "Natural\nAgri" , "Agri\nMedicines" , "Terrace\nGarden" , "Articles"];
+  static List<String> homeHeaderData = [
+    "Modern\nAgri",
+    "Natural\nAgri",
+    "Agri\nMedicines",
+    "Terrace\nGarden",
+    "Articles"
+  ];
+
+  static List<String> homeHeader = [
+    "Modern Agriculture",
+    "Natural Agriculture",
+    "Agri Medicines",
+    "Terrace Garden",
+    "Articles"
+  ];
 }

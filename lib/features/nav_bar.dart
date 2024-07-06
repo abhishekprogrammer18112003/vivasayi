@@ -45,7 +45,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
         },
       ),
       bottomNavigationBar: Container(
-        height: 80.h,
+        height: 83.h,
         decoration: BoxDecoration(
           border: Border.all(
             width: 5.0,
@@ -56,7 +56,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
         child: Material(
           elevation: 0.0,
           child: BottomNavigationBar(
-            iconSize: 28.h,
+            iconSize: 26.h,
             showSelectedLabels: true,
             showUnselectedLabels: true,
             items: const [

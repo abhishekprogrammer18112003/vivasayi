@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vivasayi/core/utils/custom_spacers.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
+import 'package:vivasayi/features/shops/add_shops.dart';
 import 'package:vivasayi/features/shops/seed_details.dart';
 
 class ShopDetails extends StatefulWidget {
@@ -31,7 +32,19 @@ class _ShopDetailsState extends State<ShopDetails> {
             ),
             Row(
               children: [
-                const Icon(Icons.add),
+                GestureDetector(
+                  onTap: () {
+                    // Handle Create Shop action
+                    // Navigate to ShopScreen
+                    Navigator.of(context).pop(); // Close the dialog
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AddShopDetails()),
+                    );
+                  },
+                  child: const Icon(Icons.add),
+                ),
                 CustomSpacers.width16,
                 const Icon(
                   Icons.delete,
