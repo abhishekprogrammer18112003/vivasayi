@@ -1,10 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vivasayi/core/app_imports.dart';
 import 'package:vivasayi/core/constants/app_data.dart';
+<<<<<<< HEAD
 import 'package:vivasayi/core/utils/screen_utils.dart';
 import 'package:vivasayi/features/shops/blogs_page.dart';
 import 'package:vivasayi/features/shops/create_shop_screen.dart';
 import 'package:vivasayi/features/shops/nearby_shops.dart';
+=======
+
+import 'package:vivasayi/core/utils/screen_utils.dart';
+import 'package:vivasayi/features/shops/shop_screen.dart';
+>>>>>>> 0f64b14540f5c3ba5516e3d64a8c5d326192690f
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+<<<<<<< HEAD
   _buildTop() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,6 +70,21 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       );
+=======
+  _buildTop()=>Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Image.asset(AppIcons.appLogo , height: 50.h, width: 50.w,),
+      IconButton(
+              icon: Icon(Icons.add, size: 34.w),
+              onPressed: () {
+                // Add your onPressed action here
+              },
+            ),
+    ],
+  );
+>>>>>>> 0f64b14540f5c3ba5516e3d64a8c5d326192690f
 
   _listViewIcons() => SizedBox(
         height: 100.h,
@@ -180,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const NearbyShop(),
+                    builder: (context) => const ShopScreen(),
                   ),
                 );
               },

@@ -3,14 +3,14 @@ import 'package:vivasayi/core/utils/custom_spacers.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
 import 'package:vivasayi/ui/molecules/custom_button.dart';
 
-class SeedDetails extends StatefulWidget {
-  const SeedDetails({super.key});
+class ProductDetails extends StatefulWidget {
+  const ProductDetails({super.key});
 
   @override
-  State<SeedDetails> createState() => _SeedDetailsState();
+  State<ProductDetails> createState() => _ProductDetailsState();
 }
 
-class _SeedDetailsState extends State<SeedDetails> {
+class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:vivasayi/core/app_imports.dart';
+import 'package:vivasayi/core/managers/shared_preference_manager.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
-import 'package:vivasayi/features/onboarding/login_signup_page.dart';
+import 'package:vivasayi/features/nav_bar.dart';
+import 'package:vivasayi/features/onboarding/screens/signup.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -16,12 +18,21 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> initialize() async {
-    Timer(const Duration(seconds: 5), () async {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const LoginOrSignUp(),
-        ),
-      );
+    bool isLogin = SharedPreferencesManager.getBool("isLogin");
+    Timer(const Duration(seconds: 2), () async {
+      if (isLogin) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const NavBarScreen(),
+          ),
+        );
+      } else {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const SignUpScreen(),
+          ),
+        );
+      }
     });
   }
 

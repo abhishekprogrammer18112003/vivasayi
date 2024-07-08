@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
-import 'package:vivasayi/features/shops/shop_details.dart';
+import 'package:vivasayi/features/shops/product_screen.dart';
 
-class NearbyShop extends StatefulWidget {
-  const NearbyShop({super.key});
+class ShopScreen extends StatefulWidget {
+  const ShopScreen({super.key});
 
   @override
-  State<NearbyShop> createState() => _NearbyShopState();
+  State<ShopScreen> createState() => _ShopScreenState();
 }
 
-class _NearbyShopState extends State<NearbyShop> {
+class _ShopScreenState extends State<ShopScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +62,7 @@ class _NearbyShopState extends State<NearbyShop> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ShopDetails(),
+                    builder: (context) => const ProductScreen(),
                   ),
                 );
               },
@@ -75,7 +75,7 @@ class _NearbyShopState extends State<NearbyShop> {
                             AssetImage('assets/nuts.png'), // Background image
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                   Positioned(
