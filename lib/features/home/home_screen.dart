@@ -1,9 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vivasayi/core/app_imports.dart';
 import 'package:vivasayi/core/constants/app_data.dart';
+<<<<<<< HEAD
+import 'package:vivasayi/core/utils/screen_utils.dart';
+import 'package:vivasayi/features/shops/blogs_page.dart';
+import 'package:vivasayi/features/shops/create_shop_screen.dart';
+import 'package:vivasayi/features/shops/nearby_shops.dart';
+=======
 
 import 'package:vivasayi/core/utils/screen_utils.dart';
 import 'package:vivasayi/features/shops/shop_screen.dart';
+>>>>>>> 0f64b14540f5c3ba5516e3d64a8c5d326192690f
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,10 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0 , vertical : 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -46,6 +52,25 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+<<<<<<< HEAD
+  _buildTop() => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(
+            AppIcons.appLogo,
+            height: 60.h,
+            width: 60.w,
+          ),
+          IconButton(
+            icon: Icon(Icons.add, size: 34.w),
+            onPressed: () {
+              _showCustomDialog(context);
+            },
+          ),
+        ],
+      );
+=======
   _buildTop()=>Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,46 +84,31 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
     ],
   );
+>>>>>>> 0f64b14540f5c3ba5516e3d64a8c5d326192690f
 
-  // _listViewIcons() => SingleChildScrollView(
-  //       scrollDirection: Axis.horizontal,
-  //       child: Row(
-  //         children: <Widget>[
-  //           _coloredContainer('Modern \nAgri'),
-  //           _coloredContainer('Natural \nAgri'),
-  //           _coloredContainer('Agri \nMedicines'),
-  //           _coloredContainer('Terrace \nGarden'),
-  //           _coloredContainer('Articles'),
-  //         ],
-  //       ),
-  //     );
+  _listViewIcons() => SizedBox(
+        height: 100.h,
+        child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: AppData.homeHeaderData.length,
+            itemBuilder: (context, index) =>
+                _coloredContainer(AppData.homeHeaderData[index])),
+      );
 
-
-  _listViewIcons()=>SizedBox(
-    height: 100.h,
-
-    child: ListView.builder(
-      shrinkWrap: true,
-      scrollDirection: Axis.horizontal,
-      itemCount: AppData.homeHeaderData.length,
-      itemBuilder: (context , index) =>_coloredContainer(AppData.homeHeaderData[index])),
-  );
-
-  Widget _coloredContainer(String text) => Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Container(
+  _coloredContainer(String text) => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
           height: 50.h,
           width: 90.w,
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 224, 250, 216),
             borderRadius: BorderRadius.circular(12), // 12px border radius
           ),
-        
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-             
               Image.asset(
                 AppIcons.drone,
                 height: 38.h,
@@ -107,14 +117,14 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 text,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 10.w ,fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 10.w, fontWeight: FontWeight.w600),
               ),
             ],
           ),
         ),
-  );
+      );
 
-  Widget _carouselItems() => CarouselSlider(
+  _carouselItems() => CarouselSlider(
         options: CarouselOptions(height: 200.0, viewportFraction: 1),
         items: [1, 2, 3, 4, 5].map((i) {
           return Builder(
@@ -174,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }).toList(),
       );
 
-  Widget _shopsAvailable() => Padding(
+  _shopsAvailable() => Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
           shrinkWrap: true,
@@ -239,5 +249,87 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           },
         ),
+      );
+
+  _showCustomDialog(BuildContext context) => showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(16.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // First Section: Displaying Categories
+
+                  CustomSpacers.height28,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: AppData.homeHeader.map((category) {
+                      return Padding(
+                        padding: EdgeInsets.all(10.w),
+                        child: Text(
+                          category,
+                          style: TextStyle(
+                              fontSize: 16.w, fontWeight: FontWeight.w400),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                  CustomSpacers.height10,
+
+                  Divider(
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                    thickness: 1.h,
+                  ),
+                  CustomSpacers.height10,
+
+                  GestureDetector(
+                    onTap: () {
+                      // Handle Create Shop action
+                      Navigator.of(context).pop(); // Close the dialog
+                      // Navigate to ShopScreen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ShopScreen()),
+                      );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.all(10.w),
+                      child: const Text(
+                        'Create Shop',
+                      ),
+                    ),
+                  ),
+
+                  GestureDetector(
+                    onTap: () {
+                      // Handle Create Shop action
+                      // Navigate to ShopScreen
+                      Navigator.of(context).pop(); // Close the dialog
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyBlogsPage()),
+                      );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.all(10.w),
+                      child: const Text(
+                        'Create Home Banner',
+                      ),
+                    ),
+                  ),
+                  CustomSpacers.height28,
+                ],
+              ),
+            ),
+          );
+        },
       );
 }
