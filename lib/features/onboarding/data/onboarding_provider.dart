@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -166,6 +168,8 @@ class OnboardingProvider with ChangeNotifier {
 
         if (storedPassword == password) {
           // Password matches, navigate to OTP Page
+          SharedPreferencesManager.setBool("isLogin", true);
+
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(

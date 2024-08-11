@@ -34,12 +34,12 @@ class AppData {
     return formattedTime;
   }
 
-  static List<String> homeHeaderData = [
-    "Modern\nAgri",
-    "Natural\nAgri",
-    "Agri\nMedicines",
-    "Terrace\nGarden",
-    "Articles"
+  static List<dynamic> homeHeaderData = [
+    {'title' : "Modern\nAgri" , 'image' : 'assets/drone 1.png'},
+    {'title' : "Natural\nAgri" , 'image' : 'assets/planting 1.png'},
+    {'title' : "Agri\nMedicines" , 'image' : 'assets/medicine 1.png'},
+    {'title' : "Terrace\nGarden" , 'image' : 'assets/terrace 1.png'},
+    {'title' : "Articles" , 'image' : 'assets/newspaper 1.png'}
   ];
 
   static List<String> homeHeader = [
@@ -48,5 +48,15 @@ class AppData {
     "Agri Medicines",
     "Terrace Garden",
     "Articles"
+  ];
+
+
+    static List<dynamic> ShopCategory = [
+    {'shopCategory'  : "Irrigation" , 'image_url'  : 'assets/nuts.png'},
+    {'shopCategory'  : "Nursery" , 'image_url' : 'assets/nuts.png' , },
+    {'shopCategory'  : "Manure" , 'image_url' : 'assets/nuts.png'},
+    {'shopCategory'  : "Machines" , 'image_url' : 'assets/nuts.png'},
+    {'shopCategory'  : "Equips" , 'image_url' :'assets/nuts.png' },
+    {'shopCategory'  : "Agri Products" , 'image_url' :'assets/nuts.png' }
   ];
 }

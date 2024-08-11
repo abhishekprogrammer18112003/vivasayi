@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vivasayi/core/utils/screen_utils.dart';
-import 'package:vivasayi/features/cart/cart_screen.dart';
-import 'package:vivasayi/features/home/home_screen.dart';
-import 'package:vivasayi/features/profile/profile_screen.dart';
+import 'package:vivasayi/features/home/screens/home_screen.dart';
 
 class NavBarScreen extends StatefulWidget {
   const NavBarScreen({super.key});
@@ -16,14 +14,23 @@ class _NavBarScreenState extends State<NavBarScreen> {
 
   final List<Widget> _pages = [
     const HomeScreen(),
-    const CartScreen(),
-    const ProfileScreen(),
+    PlaceholderWidget(), // Placeholder for CartScreen
+    PlaceholderWidget(), // Placeholder for ProfileScreen
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    if (index == 0) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('This feature is coming soon!'),
+          duration: Duration(milliseconds: 500),
+        ),
+      );
+    }
   }
 
   @override
@@ -80,6 +87,18 @@ class _NavBarScreenState extends State<NavBarScreen> {
             unselectedItemColor: const Color.fromARGB(255, 136, 136, 136),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class PlaceholderWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        'Coming Soon!',
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
     );
   }

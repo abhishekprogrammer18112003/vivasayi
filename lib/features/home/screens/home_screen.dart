@@ -1,16 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
 import 'package:vivasayi/core/app_imports.dart';
 import 'package:vivasayi/core/constants/app_data.dart';
-<<<<<<< HEAD
 import 'package:vivasayi/core/utils/screen_utils.dart';
-import 'package:vivasayi/features/shops/blogs_page.dart';
-import 'package:vivasayi/features/shops/create_shop_screen.dart';
-import 'package:vivasayi/features/shops/nearby_shops.dart';
-=======
-
-import 'package:vivasayi/core/utils/screen_utils.dart';
-import 'package:vivasayi/features/shops/shop_screen.dart';
->>>>>>> 0f64b14540f5c3ba5516e3d64a8c5d326192690f
+import 'package:vivasayi/features/home/data/home_provider.dart';
+import 'package:vivasayi/features/home/screens/create_banner_screen.dart';
+import 'package:vivasayi/features/home/screens/create_blog_screen.dart';
+import 'package:vivasayi/features/home/screens/blogs_screen.dart';
+import 'package:vivasayi/features/shops/screens/create_shop_screen.dart';
+import 'package:vivasayi/features/shops/screens/shop_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,6 +18,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      await Provider.of<HomeProvider>(context, listen: false).fetchBanner();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-<<<<<<< HEAD
   _buildTop() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,21 +75,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       );
-=======
-  _buildTop()=>Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Image.asset(AppIcons.appLogo , height: 50.h, width: 50.w,),
-      IconButton(
-              icon: Icon(Icons.add, size: 34.w),
-              onPressed: () {
-                // Add your onPressed action here
-              },
-            ),
-    ],
-  );
->>>>>>> 0f64b14540f5c3ba5516e3d64a8c5d326192690f
 
   _listViewIcons() => SizedBox(
         height: 100.h,
@@ -93,95 +83,71 @@ class _HomeScreenState extends State<HomeScreen> {
             scrollDirection: Axis.horizontal,
             itemCount: AppData.homeHeaderData.length,
             itemBuilder: (context, index) =>
-                _coloredContainer(AppData.homeHeaderData[index])),
+                _coloredContainer(index, AppData.homeHeaderData[index]['title'] , AppData.homeHeaderData[index]['image'])),
       );
 
-  _coloredContainer(String text) => Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          height: 50.h,
-          width: 90.w,
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 224, 250, 216),
-            borderRadius: BorderRadius.circular(12), // 12px border radius
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                AppIcons.drone,
-                height: 38.h,
-                width: 40.w,
-              ),
-              Text(
-                text,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 10.w, fontWeight: FontWeight.w600),
-              ),
-            ],
+  _coloredContainer(int index, String text , String img) => GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => BlogScreen(
+                        title: AppData.homeHeader[index],
+                      )));
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            height: 50.h,
+            width: 90.w,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 224, 250, 216),
+              borderRadius: BorderRadius.circular(12), // 12px border radius
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  img,
+                  height: 38.h,
+                  width: 40.w,
+                ),
+                Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 10.w, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
           ),
         ),
       );
 
-  _carouselItems() => CarouselSlider(
-        options: CarouselOptions(height: 200.0, viewportFraction: 1),
-        items: [1, 2, 3, 4, 5].map((i) {
-          return Builder(
-            builder: (BuildContext context) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 0.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 231, 255, 226),
-                      borderRadius: BorderRadius.circular(20.w),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(10.w, 20.h, 0, 0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Free Consultation',
-                                style: TextStyle(
-                                  fontSize: 25.w,
-                                  fontWeight: FontWeight.w600,
-                                  color: const Color.fromARGB(255, 29, 193, 0),
-                                ),
-                              ),
-                              SizedBox(height: 8.h),
-                              Text(
-                                'Get free support from \nour customer services',
-                                style: TextStyle(
-                                  fontSize: 20.w,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const Spacer(),
-                        Padding(
-                          padding: EdgeInsets.only(right: 10.w),
-                          child: Image.asset(
-                            'assets/image copy.png', // Adjusted path
-                            height: 150.h,
-                            width: 140.w,
-                          ),
-                        ),
-                      ],
-                    ),
+  _carouselItems() => Consumer<HomeProvider>(
+        builder: (context, value, child) => CarouselSlider(
+          options: CarouselOptions(height: 200.0, viewportFraction: 1),
+          items: value.bannerList.map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  height: 70.h,
+                  width: 380.w,
+                  decoration: BoxDecoration(
+                  // color: Colors.black.withOpacity(0.1),
+                    borderRadius:BorderRadius.circular(20),
                   ),
-                ),
-              );
-            },
-          );
-        }).toList(),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Padding(
+                        padding: EdgeInsets.only(right: 10.w),
+                        child: Image.network(i['image_url'] , fit: BoxFit.cover,)),
+                  ),
+                );
+              },
+            );
+          }).toList(),
+        ),
       );
 
   _shopsAvailable() => Padding(
@@ -195,14 +161,16 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisSpacing: 8.0,
             mainAxisSpacing: 8.0,
           ),
-          itemCount: 6,
+          itemCount: AppData.ShopCategory.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ShopScreen(),
+                    builder: (context) => ShopScreen(
+                        shopCategory: AppData.ShopCategory[index]
+                            ['shopCategory']),
                   ),
                 );
               },
@@ -210,9 +178,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image:
-                            AssetImage('assets/nuts.png'), // Background image
+                      image: DecorationImage(
+                        image: AssetImage(AppData.ShopCategory[index]
+                            ['image_url']), // Background image
                         fit: BoxFit.cover,
                       ),
                       borderRadius: BorderRadius.circular(8.0),
@@ -228,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       padding: EdgeInsets.all(8.w),
                       child: Text(
-                        'Seeds',
+                        AppData.ShopCategory[index]['shopCategory'],
                         style: TextStyle(
                           fontSize: 16.w,
                           color: Colors.white,
@@ -270,12 +238,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: AppData.homeHeader.map((category) {
-                      return Padding(
-                        padding: EdgeInsets.all(10.w),
-                        child: Text(
-                          category,
-                          style: TextStyle(
-                              fontSize: 16.w, fontWeight: FontWeight.w400),
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      CreateBlogScreen(title: category)));
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.all(10.w),
+                          child: Text(
+                            category,
+                            style: TextStyle(
+                                fontSize: 16.w, fontWeight: FontWeight.w400),
+                          ),
                         ),
                       );
                     }).toList(),
@@ -296,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ShopScreen()),
+                            builder: (context) => const CreateShopScreen()),
                       );
                     },
                     child: Padding(
@@ -315,7 +293,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const MyBlogsPage()),
+                            builder: (context) => EditImageScreen()),
                       );
                     },
                     child: Padding(
