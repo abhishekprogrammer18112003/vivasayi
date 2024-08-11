@@ -1,10 +1,6 @@
+import 'package:vivasayi/core/app_imports.dart';
+import 'package:vivasayi/features/onboarding/screens/splash_screen.dart';
 
-
-
-
-import 'package:vivasayi/features/onboarding/splash_screen.dart';
-
-import '../core/app_imports.dart';
 import 'app_pages.dart';
 
 final kNavigatorKey = GlobalKey<NavigatorState>();
@@ -19,8 +15,12 @@ class CustomNavigator {
           settings: settings,
         );
 
+      case AppPages.signup:
+        return MaterialPageRoute(
+          builder: (context) => SplashScreen(),
+          settings: settings,
+        );
 
-      
       // case AppPages.orders:
       //   return MaterialPageRoute(
       //     builder: (context) => OrdersScreen(
@@ -29,7 +29,6 @@ class CustomNavigator {
       //     ),
       //     settings: settings,
       //   );
-      
 
       default:
         throw ('This route name does not exit');

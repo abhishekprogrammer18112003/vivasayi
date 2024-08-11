@@ -1,0 +1,7 @@
+{
+    "cmake.sourceDirectory": "E:/vivasayi/linux",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "files.associations": {
+        "vector": "cpp"
+    }
+}

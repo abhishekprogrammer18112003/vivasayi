@@ -2,6 +2,7 @@
 
 
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ class AppManager {
   static Future<void> initialize() async {
 
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    await SharedPreferencesManager.init();    
+    await SharedPreferencesManager.init();   
+    await Firebase.initializeApp(); 
   }
 }
